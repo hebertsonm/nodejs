@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
     "alunos", // Model name
     {
       id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         primaryKey: true
       },
       name: {

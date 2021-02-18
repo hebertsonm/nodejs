@@ -4,10 +4,10 @@ const Op = db.Op;
 
 // Retrieve all Alunos from the database.
 exports.getAllAlunos = (req, res) => {
-  // const title = req.query.title;
-  // var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-  console.log('controller ...')
-  return res.send('Alunos');
+  
+  Alunos.findAll().then((result) => {
+    return res.send(result)
+  })
 
   // Alunos.getAllAlunos()
   //   .then(data => {
