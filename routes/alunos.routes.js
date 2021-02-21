@@ -13,15 +13,6 @@ module.exports = function(app) {
   });
 
   app.get('/api/v1/alunos', controller.getAllAlunos);
-  // app.post('/api/v1/alunos', controller.insertAlunos);
 
-  app.post('/api/v1/alunos', function(req, res) {
-    // const aluno = {
-    //   id: 3,
-    //   nome: 'kiko',
-    //   createdby: Date.now(),
-    //   updatedby: Date.now()
-    // }
-    return controller.insertAlunos(req, res)
-  })
+  app.post('/api/v1/alunos', controller.insertAlunos)
 }

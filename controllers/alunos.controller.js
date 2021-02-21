@@ -21,19 +21,16 @@ exports.getAllAlunos = (req, res) => {
 exports.insertAlunos = (req, res) => {
   // const aluno = req
 
-  // // Validate request
-  // if (!aluno.name) {
-  //   res.status(400).send({
-  //     message: "Content can not be empty!"
-  //   });
-  //   return;
-  // }
-
-  console.log('req ' + JSON.stringify(req.body))
+  // Validate request
+  if (!req.body.name) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
   
   // Save aluno in database
   alunos.create({
-    id: req.body.id,
     name: req.body.name
   })
   .then(data => {
@@ -41,5 +38,6 @@ exports.insertAlunos = (req, res) => {
   })
   .catch(err => {
     console.log(err)
+    res.send(err)
   });
 }

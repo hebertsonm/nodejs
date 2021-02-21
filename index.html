@@ -35,10 +35,14 @@
 
   function InsertAluno() {
     const aluno = {
-      id: 5,
-      name: 'zeu'
+      name: getName()
     }
     axios.post('http://localhost:8081/api/v1/alunos', aluno)
   }
+
+  function getName(){
+    return document.getElementById('nomeAluno').value
+  }
+
 </script>
 </html>
