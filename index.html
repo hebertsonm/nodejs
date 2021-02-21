@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Alunos Front</title>
+</head>
+<body>
+  <h1>Lista de alunos</h1>
+  <p><button onclick="atualizarLista()">Atualizar</button></p>
+  <ul id="alunos">
+  </ul>
+  <h1>Incluir novo aluno</h1>
+  <p>Entre o nome do novo aluno:</p>
+  <input id="nomeAluno"></input>
+  <button id="Insert" onclick="InsertAluno()">Incluir</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>
+  function atualizarLista() {
+  axios.get('http://localhost:8081/api/v1/alunos')
+      .then(response => criaListaDinamica(response.data))
+      .catch(error => console.log(error))
+    const criaListaDinamica = ( alunos ) => {
+      const ulAlunos = document.getElementById('alunos')
+      // alunos.clear()
+      alunos.map(aluno => {
+        const listaAluno = document.createElement('li')
+        listaAluno.innerHTML = `Nome: ${aluno.name}`
+        ulAlunos.appendChild(listaAluno)
+      })
+    }
+  }
+
+  function InsertAluno() {
+    const aluno = {
+      id: 5,
+      name: 'zeu'
+    }
+    axios.post('http://localhost:8081/api/v1/alunos', aluno)
+  }
+</script>
+</html>
