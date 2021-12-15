@@ -17,5 +17,6 @@ require("./routes/alunos.routes")(app);
 console.log('index ...')
 
 models.sequelize.sync({}).then(() => {
-  app.listen(8081, console.log(`Express started at http://localhost:8081`));
+  const port = process.env.PORT || 8081;
+  app.listen(port, console.log(`Express started at http://localhost:%d`,port));
 })
