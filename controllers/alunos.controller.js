@@ -31,7 +31,11 @@ exports.insertAlunos = (req, res) => {
   
   // Save aluno in database
   alunos.create({
-    name: req.body.name
+    name: req.body.name,
+    gender: req.body.gender,
+    cpf: req.body.cpf,
+    dt_nasc: req.body.dt_nasc,
+    dt_admissao: req.body.dt_admissao
   })
   .then(data => {
     res.send(data);

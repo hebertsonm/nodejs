@@ -9,6 +9,18 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
+      },
+      gender: {
+        type: DataTypes.CHAR(1),
+      },
+      cpf: {
+        type: DataTypes.CHAR(11)
+      },
+      dt_nasc: {
+        type: DataTypes.DATE,
+      },
+      dt_admissao: {
+        type: DataTypes.DATE,
       }
     }
   )
